@@ -6,6 +6,8 @@
 #include <cstring>
 #include <algorithm>
 
+#include "movies.cpp"
+
 using namespace std;
 
 bool parseLine(string &line, string &movieName, double &movieRating);
@@ -38,13 +40,22 @@ int main(int argc, char** argv){
   // Create an objects of the BST class you defined 
   // to contain the name and rating in the input file
 
+  // Declare object of type movieBST
+  movieBST movieList;
+
   // Read each file and store the name and rating
   while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
     // Use std::string movieName and double movieRating
     // to construct your Movie objects
-    cout << movieName << " has rating " << movieRating << endl;
+
+    movieList.insert(movieName, movieRating);
+    //cout << movieName << " has rating " << movieRating << endl;
   }
+
   movieFile.close();
+
+  movieList.printPreOrder();
+  // cout statement "Best movie is ________ with rating __"
 
   return 0;
 }

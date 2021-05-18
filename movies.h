@@ -17,6 +17,9 @@ class movieBST {
         bool insert(string name, double rating);
         void printPreOrder() const;
 
+        void searchForNode(string name) const;
+        void traverse() const;
+
     /*
         - constructor
         - destructor
@@ -31,6 +34,7 @@ class movieBST {
             - insert function
             - print PreOrder
             - search function for the prefix
+
     */
 
 
@@ -45,10 +49,13 @@ class movieBST {
         };
 
         Node *root;
+        //int count;
 
         bool insert(string name, double rating, Node *n);
         void clear(Node *n);
         void printPreOrder(Node *n) const;
+
+        Node* searchForNode(string name, Node* n, int& count) const;
 
     //Node* searchPreFix
 
