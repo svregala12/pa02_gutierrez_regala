@@ -41,8 +41,10 @@ int main(int argc, char** argv){
   // to contain the name and rating in the input file
 
   // Declare object of type movieBST
+  LinkedList objectThing;
   movieBST movieList;
-  movieList.size = 0;
+
+  //vector<Node*> vect;
 
   // string arg3
   string sub = argv[3];
@@ -51,13 +53,12 @@ int main(int argc, char** argv){
   while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
     // Use std::string movieName and double movieRating
     // to construct your Movie objects
-    movieList.size++;
-    movieList.insert(movieName, movieRating, sub);
+
+    movieList.insert(movieName, movieRating, sub, objectThing);
     //cout << movieName << " has rating " << movieRating << endl;
   }
 
-  
-
+  objectThing.compare();
 
   movieFile.close();
 

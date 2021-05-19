@@ -1,8 +1,10 @@
 // tests.cpp
 // tests for movieCPP
 
-#include "movies.h"
+//#include "movies.h"
 #include "movies.cpp"
+//#include "utility.h"
+//#include "utility.cpp"
 #include <iostream>
 
 using namespace std;
@@ -11,14 +13,25 @@ int main() {
 
     // test for declaring object
     movieBST test1;
+    LinkedList objectThing;
+
+
     cout << "Declaration Done" << endl;
 
     // tests for insert function
+    /*
     test1.insert("Hello", 2.2);
     test1.insert("World", 5.3);
     test1.insert("Okay Sir", 1.4);
     test1.insert("A", 100.2);
     test1.insert("Pelican", 1.2);
+    */
+
+    test1.insert("Hello", 2.2, "Hel", objectThing);
+    test1.insert("World", 5.3, "Hel", objectThing);
+    test1.insert("Okay Sir", 1.4, "Hel", objectThing);
+    test1.insert("A", 100.2, "Hel", objectThing);
+    test1.insert("Pelican", 1.2, "Hel", objectThing);
 
     /*
     test1.searchForNode("A");
@@ -38,6 +51,9 @@ int main() {
     // test for pre-order traversal
     test1.printPreOrder();
 
+    //objectThing.append(movieName, movieRating, sub, objectThing);
+
+    objectThing.compare();
 
     return 0;
 }
