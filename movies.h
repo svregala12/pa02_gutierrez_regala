@@ -11,14 +11,15 @@ class movieBST {
 
     public:
 
-        movieBST();
-        ~movieBST();
+        movieBST();               // constructor
+        ~movieBST();              // desctructor
 
-        bool insert(string name, double rating);
-        void printPreOrder() const;
+        bool insert(string name, double rating);    // insert into movie BST
+        void printPreOrder() const;                 // print preorder traversal
 
-        void searchForNode(string name) const;
-        void traverse() const;
+        void searchForNode(string name) const;      // determine depth of node based on given string
+
+        void firstTrav();
 
     /*
         - constructor
@@ -49,13 +50,16 @@ class movieBST {
         };
 
         Node *root;
-        //int count;
 
         bool insert(string name, double rating, Node *n);
-        void clear(Node *n);
-        void printPreOrder(Node *n) const;
+        void clear(Node *n);                    // helper function for destructor
+        void printPreOrder(Node *n) const;      // helper function print preorder traversal
 
+        // helper function to determine the depth of a node based on given string
         Node* searchForNode(string name, Node* n, int& count) const;
+
+        // helper function for main traverse
+        void traverse(Node* n);
 
     //Node* searchPreFix
 

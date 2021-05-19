@@ -32,14 +32,11 @@ bool movieBST::insert(string name, double rating) {
     //int count;
     // special case of empty tree first
     if (!root) {
-        //count = 0;
         root = new Node(name, rating);
-        //root -> depth = count;
         return true;
     }
 
     // otherwise use recursive helper
-    //count++;
     return insert(name, rating, root);
 }
 
@@ -55,7 +52,6 @@ bool movieBST::insert(string name, double rating, Node* n){
 
         else {
             n->left = new Node(name, rating);
-            //n->left->depth = count; // here
             n->left->parent = n;
             return true;
         }
@@ -67,7 +63,6 @@ bool movieBST::insert(string name, double rating, Node* n){
         
         else {
             n->right = new Node(name, rating);
-            //n->right->depth = count; //here
             n->right->parent = n;
             return true;
         }
@@ -122,18 +117,20 @@ movieBST::Node* movieBST::searchForNode(string name, Node* n, int& count) const 
 
 }
 
-void movieBST::traverse() const {
-    Node* n = this->root;
+//current traverse function
+void movieBST::traverse(Node* n) {
+    //Node* p = n.root;
     if (n) {
         searchForNode(n->name);
-        while (n->left) {
-            traverse();
-            n = n->left;
-        }
-        //traverse(n->left);
-        while (n->right) {
-            traverse();
-            n = n->right;
-        }
+        traverse(n->left);
+        traverse(n->right);
     }
+}
+
+void movieBST::firstTrav() {
+
+    Node *n;
+    n = this->root;
+    traverse(n);
+    
 }
