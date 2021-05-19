@@ -56,6 +56,6 @@ void LinkedList::compare() {
         p = p->next;
 
     }
-    cout << "Best movie is " << x->name << " with rating " << x->rating << endl;
+    cout << endl << "Best movie is " << x->name << " with rating " << x->rating << endl;
 
 }

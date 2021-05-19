@@ -38,7 +38,6 @@ void movieBST::insert(string name, double rating, string sub, LinkedList& object
     if (!root) {
         root = new Node(name, rating);
         searchPrefix(root, sub, object);  // HERE
-        //return true;
         return;
     }
 

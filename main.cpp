@@ -39,37 +39,42 @@ int main(int argc, char** argv){
 
   // Create an objects of the BST class you defined 
   // to contain the name and rating in the input file
-
   // Declare object of type movieBST
-  LinkedList objectThing;
   movieBST movieList;
 
-  //vector<Node*> vect;
+  LinkedList objectThing; // helper LinkedList
+  
+  string sub = argv[3]; // declare string equal to the prefix we're looking for
+  
+  if (flag) {
 
-  // string arg3
-  string sub = argv[3];
-
-  // Read each file and store the name and rating
-  while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+    // Read each file and store the name and rating
+    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
     // Use std::string movieName and double movieRating
     // to construct your Movie objects
 
-    movieList.insert(movieName, movieRating, sub, objectThing);
-    //cout << movieName << " has rating " << movieRating << endl;
+      movieList.insert(movieName, movieRating, sub, objectThing);
+      movieList.firstTrav(); // declares the depth of each node
+    }
+
+    movieFile.close();
+
+    movieList.printPreOrder();
+    objectThing.compare();
+
   }
 
-  objectThing.compare();
 
-  movieFile.close();
+  else { 
 
-  movieList.printPreOrder();
-  // cout statement "Best movie is ________ with rating __"
+    cout << "The average time to search..." << endl;
+    cout << "Number of nodes visited" << endl;
+
+  }
+  
 
   return 0;
 }
-
-
-
 
 bool parseLine(string &line, string &movieName, double &movieRating) {
   if(line.length() <= 0) return false;
