@@ -27,9 +27,8 @@ void movieBST::clear(Node *n) {
 }
 
 // insert value in BST
-bool movieBST::insert(string name, double rating) {
+bool movieBST::insert(string name, double rating, string sub) {
 
-    //int count;
     // special case of empty tree first
     if (!root) {
         root = new Node(name, rating);
@@ -37,10 +36,10 @@ bool movieBST::insert(string name, double rating) {
     }
 
     // otherwise use recursive helper
-    return insert(name, rating, root);
+    return insert(name, rating, root, sub);
 }
 
-bool movieBST::insert(string name, double rating, Node* n){
+bool movieBST::insert(string name, double rating, Node* n, string sub){
 
     if (name == n->name) {
         return false;
@@ -117,7 +116,18 @@ movieBST::Node* movieBST::searchForNode(string name, Node* n, int& count) const 
 
 }
 
-//current traverse function
+
+// main traverse function
+void movieBST::firstTrav() {
+
+    Node *n;
+    n = this->root;
+    traverse(n);
+    
+}
+
+
+// helper traverse function
 void movieBST::traverse(Node* n) {
     //Node* p = n.root;
     if (n) {
@@ -127,10 +137,30 @@ void movieBST::traverse(Node* n) {
     }
 }
 
-void movieBST::firstTrav() {
 
-    Node *n;
-    n = this->root;
-    traverse(n);
+// search for highest rating
+void movieBST::searchHigh(string sub) {
+
+    Node* p = this -> root;
+    // we want to compare substrings
+    if (this.name == sub) {
+        printPreOrder();
+
+        // Best movie is the american president with rating 6.5
+    }
+
+}
+
+void movieBST::traverseTwo(Node* n) {
+
+
+
+    if (n) {
+
+        traverseTwo(n->left);
+        traverseTwo(n->right);
     
+    }
+
+
 }
