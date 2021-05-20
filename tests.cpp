@@ -44,18 +44,11 @@ void test_insert()
     LinkedList objectThing;
 
     test1.insert("dolphin", 2.2, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("the ocean", 5.3, "do", objectThing);
-    test1.firstTrav();
-    
     test1.insert("whales", 1.4, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("sharks", 100.2, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("fish", 1.2, "do", objectThing);
+
     test1.firstTrav();
     
     cout << "ACTUAL OUTPUT -->" << endl << endl;
@@ -78,18 +71,11 @@ void test_print_preorder() {
     LinkedList objectThing;
 
     test1.insert("dolphin", 2.2, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("the ocean", 5.3, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("whales", 1.4, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("sharks", 100.2, "do", objectThing);
-    test1.firstTrav();
-
     test1.insert("fish", 1.2, "do", objectThing);
+    
     test1.firstTrav();
 
     cout << "ACTUAL OUTPUT -->" << endl << endl;
