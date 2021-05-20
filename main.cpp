@@ -65,33 +65,59 @@ int main(int argc, char** argv){
   }
 
   else {
-    /*
-    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
 
-      movieList.insert(movieName, movieRating, sub, objectThing);
-      movieList.firstTrav(); // declares the depth of each node
-
-    }
-
-    int w = stoi(sub); //50
+    int w = stoi(sub);
     int current(0);
 
-    while(current <= w)
+    vector<string> namesList;
+    vector<double> timeVect;
+    vector<double> timesList;
+    int iter(0);
+
+    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+      movieList.insert(movieName, movieRating, "", objectThing); // declares the depth of each node
+      namesList.insert(namesList.begin() + iter, movieName);  // store in vector
+      iter++;
+    }
+    movieList.firstTrav();
+
+    //movieList.storeTime(namesList, timeVect, timesList);
+    
+    while (current < w)
     {
 
-      for ()
-      
-
+      movieList.storeTime(namesList, timeVect, timesList);
 
       current++;
     }
-    */
 
+    for (double i : timesList) {
+      cout << i << endl;
+    }
+    
 
 
     cout << "\nSince your first argument is false, see the attached report that consists of:" << endl;
     cout << "(1) The average time to search for all movies in a BST (as a function of the number of nodes in the bst)." << endl;
     cout << "(2) An explanation on how the number of nodes visited when inserting a new key in the BST varies with the number of nodes in the bst.\n" << endl;
+    /*
+    Part 2 Questions:
+      - loop through each movie name in the CSV file
+      - record the time it takes to find each movie in our BST after being stored
+      - time it in part 1
+
+
+      - start with first movie name, loop through all of them via CSV file
+        - store all movie names into a movieBST
+
+        - loop through the names again via CSV file and look for them in our BST
+        - have a function that finds this movie in our BST --> record the time
+        - store time in vector/linkedlist/list/array
+        - add up all the times that it took to find each BST
+
+        - repeat process W times
+        - find average by /W
+    */
 
   }
 

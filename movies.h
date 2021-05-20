@@ -5,6 +5,9 @@
 
 #include "utility.h"
 #include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -24,6 +27,7 @@ class movieBST {
 
         void firstTrav();                           // main traverse function
 
+        void storeTime(vector<string> movie, vector<double>& timeVect, vector<double>& totalTimeList);
 
     private:
 

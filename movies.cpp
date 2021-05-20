@@ -165,3 +165,35 @@ void movieBST::searchPrefix(Node* n, string prefix, LinkedList& object) {
     }
 
 }
+
+void movieBST::storeTime(vector<string> movie, vector<double>& timeVect, vector<double>& totalTimeList) {
+
+    int iter(0);
+    for (string i : movie) {
+
+        clock_t time;
+        time = clock();
+        clock_t startTime = clock();
+        searchForNode(i);
+        clock_t endTime = clock();
+
+        clock_t passed = endTime - startTime;
+        passed = passed * 1e6 * 1.0 / CLOCKS_PER_SEC;
+
+        timeVect.insert(timeVect.begin() + iter, passed);
+
+        iter++;
+    }
+
+    double total(0);
+    for (double x : timeVect) {
+
+        total += x;
+
+    }
+
+    
+    totalTimeList.push_back(total);
+    //cout << totalTimeList.front() << endl;
+    
+}
