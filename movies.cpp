@@ -3,7 +3,6 @@
 // Steve Regala | Angel Gutierrez | 5/18/21
 
 #include "movies.h"
-//#include "utility.cpp"
 #include <iostream>
 
 using namespace std;
@@ -81,11 +80,13 @@ void movieBST::insert(string name, double rating, Node* n, string sub, LinkedLis
 }
 
 
+// main printPreOrder function
 void movieBST::printPreOrder() const {
     printPreOrder(root);
 }
 
 
+// helper printPreOrder function
 void movieBST::printPreOrder(Node *n) const {
 
     if (n) {
@@ -97,6 +98,7 @@ void movieBST::printPreOrder(Node *n) const {
 }
 
 
+// main searchForNode function
 void movieBST::searchForNode(string name) const {
 
     int count(0);
@@ -107,6 +109,7 @@ void movieBST::searchForNode(string name) const {
 }
 
 
+// helper searchForNode function
 movieBST::Node* movieBST::searchForNode(string name, Node* n, int& count) const {
 
     if (n) {
@@ -154,6 +157,7 @@ void movieBST::traverse(Node* n) {
 }
 
 
+// search for prefix function
 void movieBST::searchPrefix(Node* n, string prefix, LinkedList& object) {
     
     if (n->name.substr(0, prefix.length()) == prefix) {

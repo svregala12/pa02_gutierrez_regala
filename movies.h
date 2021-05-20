@@ -3,8 +3,7 @@
 #ifndef MOVIES_H
 #define MOVIES_H
 
-//#include "utility.h"
-#include "utility.cpp"
+#include "utility.h"
 #include <iostream>
 
 using namespace std;

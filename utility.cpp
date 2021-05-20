@@ -46,16 +46,40 @@ void LinkedList::compare() {
     p = first; //what we're going to use to iterate through
     x = first; //placeholder for what we want
 
+    if (!p) return;
+
     while (p) {
 
         if (p->next) {
             if (p->rating < p->next->rating) {
                 x = p->next;
             }
+            else if (p->rating == p->next->rating) {
+                // compare strings
+                if (p->name < p->next->name) {
+                    x = p;
+                }
+                else if (p->name > p->next->name) {
+                    x = p->next;
+                }
+            }
         }
         p = p->next;
 
     }
     cout << endl << "Best movie is " << x->name << " with rating " << x->rating << endl;
+
+}
+
+
+void LinkedList::printForTest() {
+
+    Place *p;
+    p = first;
+
+    while (p) {
+        cout << p->name << " has the rating " << p->rating << endl;
+        p = p->next;
+    }
 
 }

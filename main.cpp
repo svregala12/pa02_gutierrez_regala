@@ -7,7 +7,8 @@
 #include <algorithm>
 #include <cstdlib>
 
-#include "movies.cpp"
+#include "movies.h"
+#include "utility.h"
 
 using namespace std;
 

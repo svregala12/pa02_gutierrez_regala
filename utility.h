@@ -27,6 +27,9 @@ class LinkedList {
 
         void compare();
 
+        void printForTest();
+
+
 };
 
 
