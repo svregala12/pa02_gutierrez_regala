@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstring>
 #include <algorithm>
+#include <cstdlib>
 
 #include "movies.cpp"
 
@@ -65,7 +66,7 @@ int main(int argc, char** argv){
   }
 
 
-  else { 
+  else {
 
     cout << "The average time to search..." << endl;
     cout << "Number of nodes visited" << endl;
@@ -97,3 +98,70 @@ bool parseLine(string &line, string &movieName, double &movieRating) {
   return true;
 }
 
+
+/*
+  Part 2 Questions
+  
+  Idea: 
+  - Nodes visited
+  - If you have a list of all the names, the csv file (input set)
+    - create a list/vector of these, loop through the list of names
+    - search information will give you the same thing
+    - the average time should be equal to the depth
+    - the amount of nodes visited is depth + 1
+
+    - have a search function for when we visit a node, implement a counter
+    - equal to the depth of the tree
+    - used only on things inserted in the tree, never gonna search for something not in the tree
+    
+    - second part is timing data
+    - loop through all these movies and search for them in the nodes
+      - then store that into a vector or something
+    - Each name in the list has a specific timing value
+    - start a timer and end a timer
+    - Have a certain number where w is the amount of times you run this experiment
+    - loop through all the movies and search for the BST 50 times
+      - minimum time and maximum time it took to search 
+
+
+    - clock_t time;
+    - time = clock();
+    - clock_t startTime = clock();
+      // some operation
+      clock_t endTime = clock();
+
+    - clock_t passed = endTime - startTime;
+    - passed * 1e6 * 1.0 / CLOCKS_PER_SEC
+
+    - output how much time it took
+    - 2 comma separated values
+      - 0, 0
+      - 1, 2
+      - ...
+      - ^ print this out in the terminal
+
+
+      - for i in csv
+        - find i in the BST
+          - implement timer when looking for i in bst
+          - record time it took to find i
+        - then the next i, 
+  
+      - then add up all the times 
+
+
+        - 
+        - perform certain amount of W times --> 50 times
+        - what is the median time
+          - min and max amount of time, what is the median
+
+
+  - part 1, we could use the BST that already exists, use search function we've already created
+    - measure how long it it took
+  - Do it in main, 1st part
+  - 2nd part, we might have to modify BST class
+    - keep track of how many comparisons we did
+    - maybe change something in the insert function
+    
+
+*/
