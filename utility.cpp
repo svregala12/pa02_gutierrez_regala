@@ -46,11 +46,17 @@ void LinkedList::compare() {
     p = first; //what we're going to use to iterate through
     x = first; //placeholder for what we want
 
-    if (!p) return;
+    if (!p) {
+        cout << endl;
+        return;
+    }
 
     while (p) {
 
         if (p->next) {
+            if (p->rating > p->next->rating) {
+                x = p;
+            }
             if (p->rating < p->next->rating) {
                 x = p->next;
             }
@@ -62,9 +68,6 @@ void LinkedList::compare() {
                 else if (p->name > p->next->name) {
                     x = p->next;
                 }
-            }
-            if (p->rating > p->next->rating) {
-                x = p;
             }
         }
         p = p->next;
