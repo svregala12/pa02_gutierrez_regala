@@ -44,7 +44,7 @@ void LinkedList::compare() {
     Place* p;
     Place* x;
     p = first; //what we're going to use to iterate through
-    x = first; //placeholder for what we want
+    //x = first; //placeholder for what we want
 
     if (!p) {
         cout << endl;
