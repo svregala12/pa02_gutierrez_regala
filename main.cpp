@@ -48,8 +48,8 @@ int main(int argc, char** argv){
   
   string sub = argv[3]; // declare string equal to the prefix we're looking for
   
-  if (flag) {
-
+  if (flag) 
+  {
     // Read each file and store the name and rating
     while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
     // Use std::string movieName and double movieRating
@@ -64,8 +64,9 @@ int main(int argc, char** argv){
 
   }
 
-  else {
-
+  else 
+  {
+    // Everything below is for Part 1 of Part 2 for PA02
     int w = stoi(sub);
     int current(0);
 
@@ -75,13 +76,11 @@ int main(int argc, char** argv){
     int iter(0);
 
     while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
-      movieList.insert(movieName, movieRating, "", objectThing); // declares the depth of each node
-      namesList.insert(namesList.begin() + iter, movieName);  // store in vector
+      movieList.insert(movieName, movieRating, "", objectThing);  // declares the depth of each node
+      namesList.insert(namesList.begin() + iter, movieName);      // store in vector
       iter++;
     }
     movieList.firstTrav();
-
-    //movieList.storeTime(namesList, timeVect, timesList);
     
     while (current < w)
     {
@@ -91,33 +90,41 @@ int main(int argc, char** argv){
       current++;
     }
 
-    for (double i : timesList) {
-      cout << i << endl;
-    }
+    cout << "The MINIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
+         << *min_element(timesList.begin(), timesList.end()) << endl;
     
+    cout << "The MAXIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
+         << *max_element(timesList.begin(), timesList.end()) << endl;
+
+
+    sort(timesList.begin(), timesList.end()); // sort before finding average/median
+    cout << "The AVERAGE/MEDIAN time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: "
+         << (timesList[24] + timesList[25]) / 2 << endl;
+
+
+    // -----------------------------------------------------------------------------------------------------------
+
+    // Everything below is Part 2 of Part 2 for PA02
+    movieBST partTwo;
+    vector< pair<int, int>> pairVect;
+
+
+    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+      partTwo.insertTwo(movieName, pairVect);
+    }
+
+
+    cout << "TESTING" << endl;
+
+    for (int a=0; a < 20; a++) {
+      cout << "Forloop Entered" << endl;
+      cout << "<" << pairVect[a].first << " , " << pairVect[a].second << ">" << endl;
+    }
 
 
     cout << "\nSince your first argument is false, see the attached report that consists of:" << endl;
     cout << "(1) The average time to search for all movies in a BST (as a function of the number of nodes in the bst)." << endl;
     cout << "(2) An explanation on how the number of nodes visited when inserting a new key in the BST varies with the number of nodes in the bst.\n" << endl;
-    /*
-    Part 2 Questions:
-      - loop through each movie name in the CSV file
-      - record the time it takes to find each movie in our BST after being stored
-      - time it in part 1
-
-
-      - start with first movie name, loop through all of them via CSV file
-        - store all movie names into a movieBST
-
-        - loop through the names again via CSV file and look for them in our BST
-        - have a function that finds this movie in our BST --> record the time
-        - store time in vector/linkedlist/list/array
-        - add up all the times that it took to find each BST
-
-        - repeat process W times
-        - find average by /W
-    */
 
   }
 

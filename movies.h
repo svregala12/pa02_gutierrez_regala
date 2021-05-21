@@ -28,6 +28,8 @@ class movieBST {
         void firstTrav();                           // main traverse function
 
         void storeTime(vector<string> movie, vector<double>& timeVect, vector<double>& totalTimeList);
+        
+        void insertTwo(string word, std::vector<std::pair<int, int>>& pairVector);
 
     private:
 
@@ -51,6 +53,7 @@ class movieBST {
 
         void searchPrefix(Node*n, string prefix, LinkedList& object);           // helper function for secondary traverse (find the highest rating)
 
+        void insertTwo(string word, Node* n, std::vector<std::pair<int, int>>& pairVector);       // helper function for insertPartTwo
 };
 
 #endif

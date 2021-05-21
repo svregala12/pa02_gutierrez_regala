@@ -9,7 +9,10 @@ using namespace std;
 
 
 // constructor --> initialized as an empty tree
-movieBST::movieBST() : root(NULL) {}
+movieBST::movieBST() {
+    root = NULL;
+    size = 0;
+}
 
 
 // destructor --> delete all nodes
@@ -166,6 +169,8 @@ void movieBST::searchPrefix(Node* n, string prefix, LinkedList& object) {
 
 }
 
+
+// Part 1 of Part 2 for PA02
 void movieBST::storeTime(vector<string> movie, vector<double>& timeVect, vector<double>& totalTimeList) {
 
     int iter(0);
@@ -192,8 +197,66 @@ void movieBST::storeTime(vector<string> movie, vector<double>& timeVect, vector<
 
     }
 
-    
     totalTimeList.push_back(total);
-    //cout << totalTimeList.front() << endl;
+
+    timeVect.clear(); // clear the time vector for new times to be recorded
     
+}
+
+
+// Part 2 of Part 2 of PA02
+//std::vector<std::pair<int, int> >
+void movieBST::insertTwo(string name, std::vector<std::pair<int, int>>& pairVector) {
+
+    // special case of empty tree first
+    if (!root) {
+        root = new Node(name, 0);
+        return;
+    }
+
+    // otherwise use recursive helper
+    //return insert(name, rating, root, sub, object);
+    //firstTrav();
+    insertTwo(name, root, pairVector);
+    //firstTrav();
+}
+
+
+// helper function for insertPartTwo
+void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int>>& pairVector){
+
+    if (name == n->name) {
+        return;
+    }
+
+    if (name < n->name) {
+        if (n->left)
+            insertTwo(name, n->left, pairVector);
+
+        else {
+            n->left = new Node(name, 0);
+            size++;
+            cout << "Left Entered" << endl;
+            firstTrav();
+            pairVector.push_back(std::make_pair(size, n->left->depth));
+            n->left->parent = n;
+            return;
+        }
+    }
+
+    else {
+        if (n->right)
+            insertTwo(name, n->right, pairVector);
+        
+        else {
+            n->right = new Node(name, 0);
+            size++;
+            cout << "Right Entered" << endl;
+            firstTrav();
+            pairVector.push_back(std::make_pair(size, n->right->depth));
+            n->right->parent = n;
+            return;
+        }
+    }
+
 }
