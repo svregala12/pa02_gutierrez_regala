@@ -54,7 +54,7 @@ void LinkedList::compare() {
             if (p->rating < p->next->rating) {
                 x = p->next;
             }
-            else if (p->rating == p->next->rating) {
+            if (p->rating == p->next->rating) {
                 // compare strings
                 if (p->name < p->next->name) {
                     x = p;
@@ -63,7 +63,7 @@ void LinkedList::compare() {
                     x = p->next;
                 }
             }
-            else {
+            if (p->rating > p->next->rating) {
                 x = p;
             }
         }
