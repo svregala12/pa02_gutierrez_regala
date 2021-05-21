@@ -29,7 +29,8 @@ class movieBST {
 
         void storeTime(vector<string> movie, vector<double>& timeVect, vector<double>& totalTimeList);
         
-        void insertTwo(string word, std::vector<std::pair<int, int>>& pairVector);
+        void insertTwo(string word, std::vector<std::pair<int, int> >& pairVector);
+    
 
     private:
 

@@ -66,65 +66,70 @@ int main(int argc, char** argv){
 
   else 
   {
-    // Everything below is for Part 1 of Part 2 for PA02
-    int w = stoi(sub);
-    int current(0);
 
-    vector<string> namesList;
-    vector<double> timeVect;
-    vector<double> timesList;
-    int iter(0);
+    int input;
+    cout << "What do you want to test from Part 2 (1 for Part 1 or 2 for Part 2)?" << endl;
+    cin >> input;
 
-    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
-      movieList.insert(movieName, movieRating, "", objectThing);  // declares the depth of each node
-      namesList.insert(namesList.begin() + iter, movieName);      // store in vector
-      iter++;
-    }
-    movieList.firstTrav();
-    
-    while (current < w)
+    if(input == 1)
     {
-
-      movieList.storeTime(namesList, timeVect, timesList);
-
-      current++;
-    }
-
-    cout << "The MINIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
-         << *min_element(timesList.begin(), timesList.end()) << endl;
     
-    cout << "The MAXIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
-         << *max_element(timesList.begin(), timesList.end()) << endl;
+      // Everything below is for Part 1 of Part 2 for PA02
+      int w = stoi(sub);
+      int current(0);
+
+      vector<string> namesList;
+      vector<double> timeVect;
+      vector<double> timesList;
+      int iter(0);
+
+      while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+        movieList.insert(movieName, movieRating, "", objectThing);  // declares the depth of each node
+        namesList.insert(namesList.begin() + iter, movieName);      // store in vector
+        iter++;
+      }
+      movieList.firstTrav();
+      
+      while (current < w)
+      {
+
+        movieList.storeTime(namesList, timeVect, timesList);
+
+        current++;
+      }
+
+      cout << "The MINIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
+          << *min_element(timesList.begin(), timesList.end()) << endl;
+      
+      cout << "The MAXIMUM time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: " 
+          << *max_element(timesList.begin(), timesList.end()) << endl;
 
 
-    sort(timesList.begin(), timesList.end()); // sort before finding average/median
-    cout << "The AVERAGE/MEDIAN time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: "
-         << (timesList[24] + timesList[25]) / 2 << endl;
+      sort(timesList.begin(), timesList.end()); // sort before finding average/median
+      cout << "The AVERAGE/MEDIAN time to search for all the movies in a BST using '" << argv[2] << "' with W value 50 is: "
+          << (timesList[24] + timesList[25]) / 2 << endl;
+    }
 
 
     // -----------------------------------------------------------------------------------------------------------
-
     // Everything below is Part 2 of Part 2 for PA02
-    movieBST partTwo;
-    vector< pair<int, int>> pairVect;
+    else 
+    {
+      movieBST partTwo;
+      vector< pair<int, int>> pairVect;
 
+      while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+        partTwo.insertTwo(movieName, pairVect);
+      }
 
-    while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
-      partTwo.insertTwo(movieName, pairVect);
+      for (int a=0; a < pairVect.size(); a++) {
+        cout << "<" << pairVect[a].first << " , " << pairVect[a].second << ">" << endl;
+      }
+
+      cout << "\nSince your first argument is false, see the attached report that consists of:" << endl;
+      cout << "(1) The average time to search for all movies in a BST (as a function of the number of nodes in the bst)." << endl;
+      cout << "(2) An explanation on how the number of nodes visited when inserting a new key in the BST varies with the number of nodes in the bst.\n" << endl;
     }
-
-
-    cout << "TESTING" << endl;
-
-    for (int a=0; a < 20; a++) {
-      cout << "Forloop Entered" << endl;
-      cout << "<" << pairVect[a].first << " , " << pairVect[a].second << ">" << endl;
-    }
-
-
-    cout << "\nSince your first argument is false, see the attached report that consists of:" << endl;
-    cout << "(1) The average time to search for all movies in a BST (as a function of the number of nodes in the bst)." << endl;
-    cout << "(2) An explanation on how the number of nodes visited when inserting a new key in the BST varies with the number of nodes in the bst.\n" << endl;
 
   }
 

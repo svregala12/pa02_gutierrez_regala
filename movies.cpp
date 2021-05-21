@@ -205,26 +205,25 @@ void movieBST::storeTime(vector<string> movie, vector<double>& timeVect, vector<
 
 
 // Part 2 of Part 2 of PA02
-//std::vector<std::pair<int, int> >
+// main function of insertTwo
 void movieBST::insertTwo(string name, std::vector<std::pair<int, int>>& pairVector) {
 
     // special case of empty tree first
     if (!root) {
         root = new Node(name, 0);
+        firstTrav();
+        pairVector.push_back(std::make_pair(size, root->depth));
         return;
     }
 
     // otherwise use recursive helper
     //return insert(name, rating, root, sub, object);
-    //firstTrav();
-    cout << "WOWOW" << endl;
     insertTwo(name, root, pairVector);
-    //firstTrav();
 }
 
 
-// helper function for insertPartTwo
-void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int>>& pairVector){
+// helper function for insertTwo
+void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int> >& pairVector){
 
     if (name == n->name) {
         return;
@@ -232,13 +231,11 @@ void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int>>&
 
     if (name < n->name) {
         if (n->left) {
-            cout << "HEHEHEHE" << endl;
             insertTwo(name, n->left, pairVector);
         }
         else {
             n->left = new Node(name, 0);
             size++;
-            cout << "Left Entered" << endl;
             firstTrav();
             pairVector.push_back(std::make_pair(size, n->left->depth));
             n->left->parent = n;
@@ -253,7 +250,6 @@ void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int>>&
         else {
             n->right = new Node(name, 0);
             size++;
-            cout << "Right Entered" << endl;
             firstTrav();
             pairVector.push_back(std::make_pair(size, n->right->depth));
             n->right->parent = n;
