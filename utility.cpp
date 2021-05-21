@@ -63,6 +63,9 @@ void LinkedList::compare() {
                     x = p->next;
                 }
             }
+            else {
+                x = p;
+            }
         }
         p = p->next;
 
