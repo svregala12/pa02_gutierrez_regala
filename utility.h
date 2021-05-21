@@ -32,5 +32,5 @@ class LinkedList {
 
 };
 
-
 #endif
+//yes

@@ -195,3 +195,4 @@ void test_compare() {
 
     END_TEST("Test LinkedList compare function");
 }
+//yes
