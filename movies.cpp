@@ -217,6 +217,7 @@ void movieBST::insertTwo(string name, std::vector<std::pair<int, int>>& pairVect
     // otherwise use recursive helper
     //return insert(name, rating, root, sub, object);
     //firstTrav();
+    cout << "WOWOW" << endl;
     insertTwo(name, root, pairVector);
     //firstTrav();
 }
@@ -230,9 +231,10 @@ void movieBST::insertTwo(string name, Node* n, std::vector<std::pair<int, int>>&
     }
 
     if (name < n->name) {
-        if (n->left)
+        if (n->left) {
+            cout << "HEHEHEHE" << endl;
             insertTwo(name, n->left, pairVector);
-
+        }
         else {
             n->left = new Node(name, 0);
             size++;
