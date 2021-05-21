@@ -57,10 +57,10 @@ void LinkedList::compare() {
             if (p->rating > p->next->rating) {
                 x = p;
             }
-            if (p->rating < p->next->rating) {
+            else if (p->rating < p->next->rating) {
                 x = p->next;
             }
-            if (p->rating == p->next->rating) {
+            else if (p->rating == p->next->rating) {
                 // compare strings
                 if (p->name < p->next->name) {
                     x = p;
