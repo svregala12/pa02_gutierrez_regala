@@ -1,4 +1,4 @@
-# Makefile
+# Makefile complete
 
 CXX_FLAG = --std=c++11 -g
 

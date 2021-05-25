@@ -33,4 +33,3 @@ class LinkedList {
 };
 
 #endif
-//yes

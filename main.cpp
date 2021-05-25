@@ -251,4 +251,3 @@ bool parseLine(string &line, string &movieName, double &movieRating) {
       - find average by /W
 
 */
-//yes

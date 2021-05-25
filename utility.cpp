@@ -41,39 +41,32 @@ void LinkedList::append(double movieRating, string movieName) {
 
 void LinkedList::compare() {
 
-    Place* p;
     Place* x;
-    p = first; //what we're going to use to iterate through
-    x = p; //placeholder for what we want
+    Place* curr;
 
-    if (!p) {
-        cout << endl;
+    curr = this->first; //what we're going to use to iterate through
+    x = curr; //placeholder for what we want]
+
+    if (!curr)
+    {
+        cout<<endl;
         return;
     }
 
-    while (p) {
-
-        if (p->next) {
-            if (p->rating > p->next->rating) {
-                x = p;
-            }
-            else if (p->rating < p->next->rating) {
-                x = p->next;
-            }
-            else if (p->rating == p->next->rating) {
-                // compare strings
-                if (p->name < p->next->name) {
-                    x = p;
-                }
-                else if (p->name > p->next->name) {
-                    x = p->next;
-                }
+    while (curr && curr->next) {
+        if (curr->rating == x->rating) {
+            if (curr->name < x->name) {
+                x = curr;
             }
         }
-        p = p->next;
-
+        if (curr->rating > x->rating) {
+            x = curr;
+        }
+        curr = curr->next;
     }
-    cout << endl << "Best movie is " << x->name << " with rating " << x->rating << endl;
+
+    //we're supposed to compare x and the current node that's why it doesn't work!!!
+    cout << endl << "\nBest movie is " << x->name << " with rating " << x->rating << endl;
 
 }
 
@@ -89,4 +82,3 @@ void LinkedList::printForTest() {
     }
 
 }
-//yes
