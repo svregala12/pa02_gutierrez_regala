@@ -66,7 +66,7 @@ void LinkedList::compare() {
     }
 
     //we're supposed to compare x and the current node that's why it doesn't work!!!
-    cout << endl << "\nBest movie is " << x->name << " with rating " << x->rating << endl;
+    cout << endl << "Best movie is " << x->name << " with rating " << x->rating << endl;
 
 }
 
